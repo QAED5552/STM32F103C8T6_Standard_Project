@@ -124,4 +124,69 @@ void delay_ms(uint32_t time)
 
 #else
 
+/**
+ * @brief 定时器初始化函数，供外部调用
+ * @return 无
+ */
+void delay_init(void)
+{
+    SysTick->VAL = 0;
+    SysTick->CTRL |= SysTick_CTRL_CLKSOURCE_Msk;
+}
+
+/**
+ * @brief 1us延时，仅供内部调用(仅作为占位函数保证接口一致，调用无效果)
+ * @return 无
+ */
+static void delay_1us(void)
+{
+    // SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+    // while(!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk));
+    // SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+}
+
+/**
+ * @brief us延时，供外部调用
+ * @param time 延时的时间，单位us
+ * @note 最大支持延时 16777215us（约16.777秒），超出需改用 delay_ms()
+ * @return 无
+ */
+void delay_us(uint32_t time)
+{
+    if (time > 16777215)
+    {
+        time = 16777215; // 限制最大值（SysTick 24位）
+    }
+    SysTick->LOAD = (SystemCoreClock / 1000000) * time;
+    SysTick->VAL = 0;
+    SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+    while(!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk));
+    SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+}
+
+/**
+ * @brief ms延时，供外部调用
+ * @param time 延时的时间，单位ms
+ * @note 当 time >= 200 时，循环调用 delay_us(1000) 避免溢出
+ * @return 无
+ */
+void delay_ms(uint32_t time)
+{
+    if(time >= 200)
+    {
+        for(uint32_t i = 0; i < time; i++)
+        {
+            delay_us(1000);
+        }
+    }
+    else
+    {
+        SysTick->LOAD = (SystemCoreClock / 1000) * time - 1;
+        SysTick->VAL = 0;
+        SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+        while(!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk));
+        SysTick->CTRL &= ~SysTick_CTRL_ENABLE_Msk;
+    }
+}
+
 #endif
