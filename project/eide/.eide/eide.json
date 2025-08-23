@@ -107,7 +107,7 @@
             "path": "../../driver/system/src/delay.c"
           },
           {
-            "path": "../../driver/custom/src/gpio_init_custom.c"
+            "path": "../../driver/custom/src/custom_init.c"
           }
         ],
         "folders": []
