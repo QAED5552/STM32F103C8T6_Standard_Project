@@ -2,7 +2,7 @@
 
 /********************************************************
  * @brief  自定义GPIO初始化函数
- * @param  GPIOx: GPIO端口号(A~G)
+ * @param  GPIOx: GPIO端口号(gpioa~gpiog)
  * @param  GPIO_Speed: GPIO速度(GPIOSpeed_10MHz/GPIOSpeed_20MHz/GPIOSpeed_50MHz)
  * @param  GPIO_Mode: GPIO模式(GPIO_MODE_AIN/IN_FLOATING/IPD/IPU/OUT_OD/OUT_PP/AF_OD/AF_PP)
  * @param  GPIO_Pin: GPIO引脚号{GPIO_Pin_0~15}
