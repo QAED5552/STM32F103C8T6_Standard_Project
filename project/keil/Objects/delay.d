@@ -1,5 +1,5 @@
-.\objects\delay.o: ..\..\driver\custom\src\delay.c
-.\objects\delay.o: ..\..\driver\custom\inc\delay.h
+.\objects\delay.o: ..\..\driver\system\src\delay.c
+.\objects\delay.o: ..\..\driver\system\inc\delay.h
 .\objects\delay.o: ..\..\cmsis\stm32f10x.h
 .\objects\delay.o: ..\..\cmsis\core_cm3.h
 .\objects\delay.o: D:\Applications\keil uvision5\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

@@ -1,5 +1,4 @@
 .\objects\main.o: ..\..\app\main.c
-.\objects\main.o: ..\..\app\main.h
 .\objects\main.o: ..\..\cmsis\stm32f10x.h
 .\objects\main.o: ..\..\cmsis\core_cm3.h
 .\objects\main.o: D:\Applications\keil uvision5\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -29,10 +28,4 @@
 .\objects\main.o: ..\..\driver\system\inc\stm32f10x_usart.h
 .\objects\main.o: ..\..\driver\system\inc\stm32f10x_wwdg.h
 .\objects\main.o: ..\..\driver\system\inc\misc.h
-.\objects\main.o: ..\..\driver\custom\inc\My_GPIO_Init.h
-.\objects\main.o: ..\..\driver\custom\inc\delay.h
-.\objects\main.o: ..\..\driver\custom\inc\control.h
-.\objects\main.o: ..\..\driver\custom\inc\lcd.h
-.\objects\main.o: ..\..\driver\custom\inc\lcd_init.h
-.\objects\main.o: ..\..\driver\custom\inc\My_GPIO_Init.h
-.\objects\main.o: ..\..\driver\custom\inc\delay.h
+.\objects\main.o: ..\..\driver\system\inc\delay.h

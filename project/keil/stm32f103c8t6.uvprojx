@@ -531,29 +531,9 @@
               <FilePath>..\..\driver\system\src\stm32f10x_wwdg.c</FilePath>
             </File>
             <File>
-              <FileName>control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\driver\custom\src\control.c</FilePath>
-            </File>
-            <File>
               <FileName>delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\driver\custom\src\delay.c</FilePath>
-            </File>
-            <File>
-              <FileName>My_GPIO_Init.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\driver\custom\src\My_GPIO_Init.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\driver\custom\src\lcd.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcd_init.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\driver\custom\src\lcd_init.c</FilePath>
+              <FilePath>..\..\driver\system\src\delay.c</FilePath>
             </File>
           </Files>
         </Group>
