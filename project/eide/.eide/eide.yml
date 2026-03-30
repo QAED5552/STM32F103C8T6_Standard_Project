@@ -74,6 +74,8 @@ targets:
         - ../keil/RTE/_stm32f103c8t6
       libList: []
     excludeList: []
+    settings:
+      debugger: cortex-debug
     toolchain: AC5
     toolchainConfigMap:
       AC5:
