@@ -14,7 +14,7 @@ void delay_init(void){}
  */
 static void delay_1us(void)
 {
-    for(uint32_t i = 0; i < 72; i++)
+    for(uint32_t i = 0; i < 71; i++)
     {
         __NOP();
     }
@@ -99,14 +99,25 @@ void delay_us(uint32_t time)
  */
 void delay_ms(uint32_t time)
 {
-    if(time > 65)
-    {
-        for(uint32_t i = 0; i < time; i++)
+	while(time > 50)
+	{
+        for(uint32_t i = 0; i < 50; i++)
         {
-            delay_us(1000);
+            uint32_t period = 1000 - 1;
+			
+			TIM_SetAutoreload(TIM3, period);
+			TIM_SetCounter(TIM3, 0);
+			
+			TIM_ClearFlag(TIM3, TIM_FLAG_Update);
+			TIM_Cmd(TIM3, ENABLE);
+			
+			while (TIM_GetFlagStatus(TIM3, TIM_FLAG_Update) != SET);
+			
+			TIM_Cmd(TIM3, DISABLE);
         }
+		time -= 50;
     }
-    else
+    if(time > 0)
     {
         uint32_t period = time * 1000 - 1;
 
