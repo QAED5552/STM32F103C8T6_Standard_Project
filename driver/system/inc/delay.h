@@ -1,7 +1,7 @@
 #ifndef DELAY_H
 #define DELAY_H
 
-#include "stm32f10x.h"
+#include "main.h"
 
 #define systemcoreclock 72000000
 
